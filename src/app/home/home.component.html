@@ -1,0 +1,14 @@
+<div class="container-fluid">
+  <div class="row">
+    <app-loader [isLoading]="isLoading"></app-loader>
+
+    <form [formGroup]="searchForm" (ngSubmit)="sniff()">
+      <div class="input-group col-sm-3">
+        <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2" formControlName="sourceCode"/>
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary" type="submit" [disabled]="searchForm.invalid || isLoading">Sniff it!</button>
+        </div>
+      </div>
+  </form>
+  </div>
+</div>

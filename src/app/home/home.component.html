@@ -1,14 +1,21 @@
 <div class="container-fluid">
   <div class="row">
     <app-loader [isLoading]="isLoading"></app-loader>
-
-    <form [formGroup]="searchForm" (ngSubmit)="sniff()">
       <div class="input-group col-sm-3">
-        <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2" formControlName="sourceCode"/>
-        <div class="input-group-append">
-          <button class="btn btn-outline-secondary" type="submit" [disabled]="searchForm.invalid || isLoading">Sniff it!</button>
-        </div>
+        <form [formGroup]="searchForm" (ngSubmit)="sniff()">
+          <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2" formControlName="sourceCode"/>
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="submit" [disabled]="searchForm.invalid || isLoading">Sniff it!</button>
+          </div>
+        </form>
       </div>
-  </form>
+      <div class="input-group col-sm-9">
+        <ul>
+          <li *ngFor="let d of result">
+            <span>{{ d.innerHTML }}</span>
+          </li>
+        </ul>
+
+      </div>
   </div>
 </div>
